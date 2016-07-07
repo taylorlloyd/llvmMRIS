@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.8)
+find_package(LLVM REQUIRED CONFIG)
+list(APPEND CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
+include(AddLLVM)
+set (CMAKE_CXX_FLAGS "--std=gnu++11 -Wall -fno-rtti -g ${CMAKE_CXX_FLAGS}")
+add_definitions(${LLVM_DEFINITIONS})
+include_directories(${LLVM_INCLUDE_DIRS})
+
+add_subdirectory(minreg)
+add_subdirectory(redwidth)
+add_subdirectory(nvassume)
